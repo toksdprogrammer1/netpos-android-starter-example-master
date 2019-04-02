@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.smartpesa:scanner-3.8.0-SNAPSHOT-5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/scanner-3.8.0-SNAPSHOT-5.aar/a5a49618f996ca18d7931545f5e0e04b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/scanner-3.8.0-SNAPSHOT-5.aar/a5a49618f996ca18d7931545f5e0e04b/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.smartpesa/scanner/3.8.0-SNAPSHOT-5/a10b383685a5fcb4b343115aac51c8c9e8e1b692/scanner-3.8.0-SNAPSHOT-5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
