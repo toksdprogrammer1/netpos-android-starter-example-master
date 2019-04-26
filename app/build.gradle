@@ -24,50 +24,43 @@ android {
     repositories {
         maven { url "https://jitpack.io" }
         maven {
-            url "https://bitbucket.org/smartpesa/smartpesa-maven/raw/master"
-            credentials {
-                username "kunbiNetplus"
-                password "netplusadvisory"
-            }
-            authentication{
-                basic(BasicAuthentication)
-            }
-        }
-        maven {
             url "https://bitbucket.org/smartpesa/maven/raw/master"
             credentials {
                 username "kunbiNetplus"
                 password "netplusadvisory"
             }
-            authentication{
+            authentication {
                 basic(BasicAuthentication)
             }
         }
     }
 
-}
-
-
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'javax.annotation:javax.annotation-api:1.2'
-    implementation "com.google.dagger:dagger-android-support:2.12"
-    annotationProcessor "com.google.dagger:dagger-compiler:2.12"
-    implementation('com.github.afollestad.material-dialogs:core:0.8.5.7@aar') {
-        transitive = true
+    configurations.all {
+        // check for updates every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
     }
-    implementation('com.mikepenz:materialdrawer:5.0.0@aar') {
-        transitive = true
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        testImplementation 'junit:junit:4.12'
+        implementation 'com.android.support:appcompat-v7:28.0.0'
+        implementation 'com.android.support:design:28.0.0'
+        implementation 'com.android.support:support-v4:28.0.0'
+        implementation 'com.jakewharton:butterknife:8.8.1'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+        implementation 'javax.annotation:javax.annotation-api:1.2'
+        implementation "com.google.dagger:dagger-android-support:2.12"
+        annotationProcessor "com.google.dagger:dagger-compiler:2.12"
+        implementation('com.github.afollestad.material-dialogs:core:0.8.5.7@aar') {
+            transitive = true
+        }
+        implementation('com.mikepenz:materialdrawer:5.0.0@aar') {
+            transitive = true
+        }
+        implementation('com.smartpesa:sdk:4.0.1.4') {
+            transitive = true
+            changing = true
+        }
     }
-    implementation ('com.smartpesa:sdk:4.0.0') {
-        transitive = true
-        changing = true
-    }
+
 }

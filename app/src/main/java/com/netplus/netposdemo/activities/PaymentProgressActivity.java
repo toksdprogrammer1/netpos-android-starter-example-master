@@ -121,7 +121,7 @@ public class PaymentProgressActivity extends AppCompatActivity {
 
             }
 
-        });
+        }, this);
     }
 
     public SmartPesa.TransactionParam buildTransactionParam(SpTerminal terminal) {
@@ -154,72 +154,7 @@ public class PaymentProgressActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onDeviceConnected(SpTerminal spTerminal) {
-
-            }
-
-            @Override
-            public void onDeviceDisconnected(SpTerminal spTerminal) {
-
-            }
-
-            @Override
-            public void onBatteryStatus(SmartPesa.BatteryStatus batteryStatus) {
-
-            }
-
-            @Override
-            public void onShowSelectApplicationPrompt(List<String> list) {
-
-            }
-
-            @Override
-            public void onWaitingForCard(String s, SmartPesa.CardMode cardMode) {
-                progressTv.setText("Insert/swipe card");
-            }
-
-            @Override
-            public void onShowInsertChipAlertPrompt() {
-                progressTv.setText("Insert chip card");
-            }
-
-            @Override
-            public void onReadCard(Card card) {
-
-            }
-
-            @Override
-            public void onShowPinAlertPrompt() {
-                progressTv.setText("Enter PIN on pesaPOD");
-            }
-
-            @Override
-            public void onPinEntered() {
-
-            }
-
-            @Override
-            public void onShowInputPrompt() {
-
-            }
-
-            @Override
-            public void onReturnInputStatus(SmartPesa.InputStatus inputStatus, String s) {
-
-            }
-
-            @Override
-            public void onShowConfirmAmountPrompt() {
-                progressTv.setText("Confirm amount on pesaPOD");
-            }
-
-            @Override
-            public void onAmountConfirmed(boolean b) {
-
-            }
-
-            @Override
-            public void onTransactionFinished(TransactionType transactionType, boolean isSuccess, @Nullable Transaction transaction2, @Nullable SmartPesa.Verification verification, @Nullable SpCardTransactionException exception2) {
+            public void onTransactionFinished(TransactionType transactionType, boolean isSuccess, @Nullable Transaction transaction, @Nullable SmartPesa.Verification verification, @Nullable SpCardTransactionException exception) {
 
             }
 
@@ -254,9 +189,81 @@ public class PaymentProgressActivity extends AppCompatActivity {
 
             }
 
+
+
             @Override
             public void onError(SpException exception) {
                 progressTv.setText(exception.getMessage());
+            }
+
+            @Override
+            public void onDeviceConnected(SpTerminal spTerminal) {
+
+            }
+
+            @Override
+            public void onDeviceDisconnected(SpTerminal spTerminal) {
+
+            }
+
+            @Override
+            public void onBatteryStatus(SmartPesa.BatteryStatus batteryStatus) {
+
+            }
+
+            @Override
+            public void onShowSelectApplicationPrompt(List<String> list) {
+
+            }
+
+            @Override
+            public void onShowSelectTIDPrompt(List<String> tidList) {
+
+            }
+
+            @Override
+            public void onWaitingForCard(String s, SmartPesa.CardMode cardMode) {
+                progressTv.setText("Insert/swipe card");
+            }
+
+            @Override
+            public void onShowInsertChipAlertPrompt() {
+                progressTv.setText("Insert chip card");
+            }
+
+            @Override
+            public void onReadCard(Card card) {
+
+            }
+
+            @Override
+            public void onShowPinAlertPrompt(int tryCounter) {
+                progressTv.setText("Enter PIN on pesaPOD");
+            }
+
+            @Override
+            public void onPinEntered(int tryCounter) {
+
+            }
+
+            @Override
+            public void onShowInputPrompt() {
+
+            }
+
+            @Override
+            public void onReturnInputStatus(SmartPesa.InputStatus inputStatus, String s) {
+
+            }
+
+            @Override
+            public void onShowConfirmAmountPrompt() {
+                progressTv.setText("Confirm amount on pesaPOD");
+            }
+
+            @Override
+            public void onAmountConfirmed(boolean b) {
+
             }
 
 
@@ -299,7 +306,12 @@ public class PaymentProgressActivity extends AppCompatActivity {
             public void onShowBalance(Balance balance) {
 
             }
-        });
+
+            @Override
+            public void onShowPinPass(String pin) {
+
+            }
+        }, this);
     }
 
     //print receipt

@@ -24,7 +24,6 @@ import smartpesa.sdk.ServiceManager;
 import smartpesa.sdk.ServiceManagerConfig;
 import smartpesa.sdk.core.error.SpException;
 import smartpesa.sdk.error.SpSessionException;
-import smartpesa.sdk.log.SpLogLevel;
 import smartpesa.sdk.models.version.GetVersionCallback;
 import smartpesa.sdk.models.version.Version;
 import smartpesa.sdk.network.NetworkSettings;
@@ -45,7 +44,6 @@ public class SplashActivity extends AppCompatActivity {
 
         //initialise SmartPesa ServiceManager
         ServiceManagerConfig config = new ServiceManagerConfig.Builder(getApplicationContext())
-                .logLevel(SpLogLevel.DEBUG)
                 .networkSettings(new NetworkSettings.Builder()
                         .url(new HttpUrl.Builder()
                                 .host("netplus.prod.smartpesa.com")
@@ -53,7 +51,11 @@ public class SplashActivity extends AppCompatActivity {
                                 .build())
                         .build())
                 .build();
-        ServiceManager.init(config);
+        try {
+            ServiceManager.init(config);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //use this to get serviceManager instance anywhere
         mServiceManager = ServiceManager.get(SplashActivity.this);
